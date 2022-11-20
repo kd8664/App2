@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.MainPage"
+             xmlns:App2="clr-namespace:App2">
+    <ContentPage.BindingContext>
+        <App2:ViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout BackgroundColor="#ededed">
+        <Frame BackgroundColor="Black" Padding="24" CornerRadius="0">
+            <Label  HorizontalTextAlignment="Center" Text ="Конвертер валют" TextColor="White" FontSize="30" FontFamily="" FontAttributes="Bold"/>
+        </Frame>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.1*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="2.5*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="0.4*" />
+            </Grid.ColumnDefinitions>
+
+
+            <Frame Grid.Column="3" Grid.Row="0" BackgroundColor="white" Padding="0" CornerRadius="15" Margin="5">
+                <Label Text="{Binding CurrentDate}" HorizontalOptions="Center" FontSize="Medium" VerticalOptions="Center" TextColor="Black"/>
+            </Frame>
+
+            <Frame  Grid.Column="2" Grid.Row="2" BackgroundColor="white" Padding="0" CornerRadius="10" Margin="5">
+                <Entry Text="{Binding StartValute}" Placeholder="0.0" FontSize="Small" HorizontalTextAlignment="Center" TextColor="Black"/>
+            </Frame>
+
+            <Frame  Grid.Column="2" Grid.Row="6" BackgroundColor="white" Padding="0" CornerRadius="10" Margin="5">
+                <Entry Text="{Binding EndValute}" Placeholder="0.0" FontSize="Small" HorizontalTextAlignment="Center" TextColor="Black"/>
+            </Frame>
+
+            <Picker ItemsSource="{Binding All}" SelectedItem="{Binding Source}" ItemDisplayBinding="{Binding Name}" FontSize="Small"  Grid.Column="1" Grid.Row="2" HorizontalTextAlignment="Center" TextColor="Black">
+
+            </Picker>
+
+            <Picker ItemsSource="{Binding All}" SelectedItem="{Binding Target}" ItemDisplayBinding="{Binding Name}" FontSize="Small"  Grid.Column="1" Grid.Row="6" HorizontalTextAlignment="Center" TextColor="Black">
+            </Picker>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
